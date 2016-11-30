@@ -1,0 +1,16 @@
+Open Database Connectivity (ODBC)
+---------------------------------
+
+ODBC is an API for accessing a data source from within a programming language
+(that is, programmatically). A data source is typically a database management
+system (DBMS), but can be something else, like a text file, or CSV file. 
+
+Because multiple different kinds of DBMSs exist, and each has its own 
+language, each DBMS needs its own ODBC drvier to translate between the two
+formats. The driver will take a query from the standard ODBC format and
+translate it into the correct syntax and language for a specific DBMS. Once
+the request has been processed, ODBC will take the response from the DBMS and
+translate it back into the standard format, which is then fed back into the 
+program.
+
+The API translates DBMS queries and translates them to a native 

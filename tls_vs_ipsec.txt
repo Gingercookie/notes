@@ -1,0 +1,24 @@
+TLS - transport layer security. SSL (secure sockets layer) is technically a
+    misnomer for TLS as SSL is actually the predecessor to TLS.
+    Based on SSLv3. It is a layer 4 (transport) security measure. It runs 
+        directly on top of TCP only.
+    TLS/SSL operates on public/private key pairs in the PKI to manage 
+        certificates. Because of this, both the client and server must
+        have technology to cryptographically verify keys and certificates.
+    TLS ONLY provides point-to-point encryption, NOT end-to-end encryption.
+
+IPsec - Internet Protocol security
+    Protocol suite that runs on layer 3 (network layer). 
+    There are two main protocols used in IPsec:
+        Authentication Header (AH) - used to provided authentication.
+        Encapsulating Security Payload (ESP) - used to provide 
+            both authentication and confidentiality of data (payload).
+    Because IPsec is used at layer  3, this means it provdes support for
+        any kind of layer 4 and above protocol (tcp,udp,icmp,dns).
+    Does not rely on public key crypto, so it is much less demanding.
+    Does not play nice with NA(P)T. Because the layer 4 ports are now 
+        encrypted (in ESP), it makes it tough to read them and be able to
+        redirect to the proper host.
+
+    * Works with Kerberos (TM)
+

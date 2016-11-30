@@ -1,0 +1,26 @@
+Anybody who claims that he knows what computers will be ablet odo more than 50 years from now is either a prophet, a madman, a liar, or all of these together.
+
+There is no meaningful way to compare 3000-bit and 4000-bit RSA keys, in a
+    security view. They are both unbreakable in the foreseeable future.
+
+In SSH, two algorithms are used.
+    The first, Diffie-Hellman (or the elliptic curve variant called ECDH),
+    is used to generate a "shared key". This key is the key that will be 
+    used to encrypt and decrypt data for the session.
+
+    The second algorithm, based on a public/private key pair, is used only
+    to authenticate the identity of the client/server.
+
+DH is a key-exchange algorithm based on integer factorization (factoring a
+    given modulus).
+ECDH (elliptic curve Diffie-Hellman) is based on discrete logarithm problem.
+Elliptic curve cryptography, as a general practice, provides more security
+    per bit than does integer factorization.
+
+Ed25519 was NOT developed by the NSA, who has been known to produce 
+    cryptographically weak standards (see DUAL_EC_DRBG).
+
+Ed25519 keys are generally 256 bits (at least mine are), and are believed
+    to be more secure than 4096-bit RSA keys. The major downfall of the keys
+    being that they are not widely used.
+    

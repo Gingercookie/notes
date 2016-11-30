@@ -1,0 +1,81 @@
+Cross-Origin Resource Sharing (CORS) and XmlHttpRequest (XHR) 
+
+Cross-origin resource sharing is mechanism in HTTP that allows resources
+to be loaded from across separate domains. 
+
+Traditionally, scripts and other web-content is not permitted to request
+resources from separate domains. Such content is said to follow the 
+'Same Origin Policy'. This means that any script being run on the 
+'domainA.com' website may only load content whose origin is also from the
+domainA domain. 
+
+XMLHTTPRequest is one such example of something that has traditionally
+followed the same origin policy. XMLHTTPRequest provides another means 
+of communication between a client and server that allows retrieval of
+data without issuing a full page request.
+
+CORS is typically used through a wrapper or API. One of the more common ways
+to wrap a CORS request is within XHR. 
+
+// sample xmlhttprequest in javascript
+var invocation = new XMLHttpRequest();
+var url = 'http://bar.other/resources/public-data'
+
+function callOtherDomain() {
+	if(invocation) {
+		invocation.open('GET', url, true);
+		invocation.onreadystatechange = handler;
+		invocation.send();
+	}
+}
+// end sample
+
+This is the basic concept behind how to perform a CORS request via XHR, and 
+the browser will handle the rest.
+
+The request looks something like this
+
+// sample HTTP CORS request
+GET /resources/public-data HTTP/1.1
+Host: bar.other
+** 
+Typical HTTP headers
+**
+Referer: http://foo.example/examples/acces-control/simpleXSInvocation.html
+Origin: http://foo.example
+// end sample
+
+and the server's response looks something like this
+
+// sample HTTP CORS response
+HTTP/1.1 200 OK
+**
+typicall HTTP headers in response
+**
+Access-Control-Allow-Origin: *
+Content-Type: application/xml
+// end sample
+
+In the request:
+The Host header is where the external content you wish to request lives.
+The Origin and Referer are the domain and URI requesting the resource.
+
+In the response:
+The Access-Control-Allow-Origin header specifies which domains are allowed to
+	request this resource. A value of '*' states that any domain is allowed 
+	to access this resource. Note that this is a whitelist.
+The Content-Type header specifies the type of content to be returned. In a 
+	typical CORS request, only 	application/x-www-form-urlencoded
+								multipart/form-data
+								text/plain
+	are allowed.
+There is also the option of including an Access-Control-With-Credentials
+	boolean header. If this header is set to 'true' then only a response with
+	a matching true header will be accepted. All other responses will be
+	ignored by the browser. This header specifies that the Host domain should
+	respond with a session cookie.
+
+There is another type of CORS request, which requires a pre-flight request
+	and response. These types of requests include any which specify custom 
+	HTTP headers, and those which are of a content-type other than those 
+	listed above.

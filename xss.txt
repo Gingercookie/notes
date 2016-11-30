@@ -1,0 +1,26 @@
+Cross-site Scripting (xss) attacks are a type of code injection. They occur
+when the server does not validate user input.
+
+Two different types of xss:
+
+Reflected (non-persistent):
+    In a reflected xss attack, part of the URL contains a string which is 
+        then copied into the server's HTTP(S) response and then displayed
+        back to the user. If this input is not validated, it can create
+        a vulnerability where a user can execute arbitrary javascript on the
+        server. 
+    The most common form of this attack is creating a malicious URL with
+        the xss attack embedded inside, and then giving the URL to a user
+        to follow. When the user clicks the link, the attack will be sent
+        to the server, and then reflected back to the user from the server.
+
+Persistent:
+    This occurs when a data sent by the user is saved on the server and 
+        subsequently served to other users in a normal request.
+    Example: A website where users are allowed to edit content for other
+        people to view (facebook, for example). If you edit some text
+        on your page to include a <script> tag, then you can store 
+        arbitrary javascript inside that page. When other users come to
+        visit your page, the script will be executed on their browser.
+        This can be used to get personal information from the users who 
+        are visiting your page.

@@ -1,0 +1,79 @@
+SSLstrip is an attack on HTTPS.
+
+A little background ---
+
+SSLSniff
+
+A certificate chain is usually considered to be a valid certificate chain
+if the chain is closed at the end by a root CA or trusted CA. An issue
+arises when you control the leaf node. If you control the leaf node,
+you can generate illegitimite certificates for websites which you do not
+own. Then, the chain is just 1 block longer, and it still ends at the 
+trusted, root CA. This means that the chain is still valid (to many
+implementations), even though it is not.
+
+Microsoft says that this is not actually an issue, and Moxie releases
+his code that exploits the vuln. This exploit is called SSLSniff
+
+--- end background info
+
+Onto the real stuff...
+
+So most users only encounter an 'HTTPS' page under two circumstances:
+    1. They click on a link, or button, that links to an HTTPS page.
+    2. They get 302'ed (redirect) to another page. This usually happens
+        when a user tries to establish an unencrypted session (HTTP) and 
+        the website responds with: "Hey, use this HTTPS link instead".
+
+So. Given that we know users are almost always going through HTTP to get 
+    to HTTPS, we can just start by attacking HTTP in the first place.
+
+How SSLstrip works:
+    The setup..
+    1. Do a MiTM attack on HTTP traffic, regular network.
+    2. Watch traffic go by.
+    3. When you see <a href="https//.."> go by, swap it with 
+        <a href="http://.."> and keep a map of what you changed.
+    4. Same thing with Location: https://... to Location: http://...
+
+    The exploit..
+    1. When you see an HTTP request for a URL that we've stripped, create 
+        a matching HTTPS connection between you and the actual server.
+    2. The victim will continue to send data to you through HTTP, totally
+        unencrypted. It is your job to keep track of all the data that
+        should be encrypted, and proxy that into the HTTPS connection you
+        have with the server. (Includes CSS and JS files).
+    3. Once you have the information that you want (username/password), 
+        switch the victim back over to a regular HTTPS connection and 
+        get out of the way. No reason to stay longer than needed.
+
+    A couple issues we may run into..
+    1. Content encoding that aren't easy to parse: gzip, compress.
+    2. Secure cookies. If a secure cookie is a part of this connection, the
+        browser will not send it over HTTP.
+    3. Cached pages. If a client (victim) has a cached version of the page
+        they're trying to connect to, this won't work, because they don't
+        need to request the page (and thus give us a chance to swap the 
+        HTTPS for HTTP).
+
+    How to combat these problems..
+    1. Just strip the content encoding. We don't care.
+    2. The only difference between a secure cookie and a non-secure cookie
+        is the 'secure-bit'. Just one bit that has been set by the 
+        'Set-Cookie' statement. So we just strip that secure bit out, and 
+        pass as a non-secure cookie.
+    3. A client passes an 'if-modified-since' header to determine if it 
+        should use a cached page. If we see this header go by, strip it, 
+        and the client will get a new version of the page.
+
+TLDR;
+
+SSLStrip is a kind of MiTM attack that detects a client's browser who is
+trying to establish an HTTPS connection redirected from an HTTP connection.
+
+You strip the HTTPS request, replace it with HTTP (so the session remains
+unencrypted), and create the HTTPS connection between yourself and the
+server. You continue to forward all the unencrypted traffic the victim is
+sending directly to you through the SSL connection you have with the server.
+When you have what you want, you reconnect the client to the SSL connection
+and get out of the way.
