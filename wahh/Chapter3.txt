@@ -1,0 +1,58 @@
+Chapter 3 - Web Application Technologies
+----------------------------------------
+
+HTTP
+    Status Codes
+        1xx - Informational
+        2xx - Successful
+        3xx - Redirect
+        4xx - Error
+        5xx - Server error 
+
+    Request
+        Consists of a verb, requested URL, and HTTP version
+        Headers
+            Referer
+            User-Agent
+            Host
+            Cookie
+
+    Response
+        Consists of HTTP version, status code, "reason phrase"
+        Headers
+            Server
+            Set-Cookie
+            Pragma
+            Expires
+            Content-Type
+            Content-Length
+
+    HTTP Methods
+        GET - used for requesting a resource
+        POST - used for submitting data
+
+        HEAD - same as GET but does not expect a message body in the response
+        TRACE - diagnostic
+        OPTIONS - asks which HTTP methods are available for the resource
+        PUT - upload resource
+
+    General headers
+        Connection - Keep TCP connection alive ?
+        Content-Encoding - specifies body encoding
+        Content-Type - specifies type
+
+        Accept - which kinds of content the client is willing to accept
+        Accept-Encoding - same, but encodings
+        Authorization
+        If-Modified-Since - will serve cached copy if not modified
+        If-None-Match - used to request cached copies as well
+        Origin - used in Ajax cross-domain requests
+
+    Cookies
+        secure - will only be sent over HTTPS
+        HttpOnly - not accessible via client-side javascript
+
+REST urls
+    Instead of using ?var=value in a URL query string, just use directories
+    For example http://vehicles.com/honda/motorsports/street/cbr250
+    instead of  http://vehicles.com/?make=honda?subdir=motorsports?type=street?model=cbr250
