@@ -1,0 +1,72 @@
+Windows Day
+
+Alternate Data Streams
+	It's a feature, not a bug! - Microsoft
+	You can hide data behind other data. It has legitimate uses, but it also allows
+	you to hide executables behind files. If you find an executable ADS, it's
+	likely malware
+
+Access Control
+	Security Access Token contains Security Identifier
+
+	Local access control is cumulative
+	Remote access control is "most-restrictive wins" between NTFS and remote ACL
+
+	Denies
+		Implicit Deny
+			If a user has not explicitly been given permission to acess a resource, they
+			are denied implicitly
+		Explicit Deny
+			It is possible to explicitly deny permission to a user or a group 
+			If an user is explicitly denied, or belongs to a group that is explicitly
+			denied, that deny overwrites any other permission he may have
+
+Registry
+	Keeps a record of every timestamp of every file accessed, program run, etc..
+	Remote regedit exists, turn it of..
+
+	Registry Editing Templates
+		SecEdit
+
+Mandatory Integrity Control (MIC)
+
+"Whole-disk" (Most of the disk) Encryption 
+	Can't encrypt the boot sector, obviously...
+
+	Trusted Platform Module (TPM)
+		Includes cpu and storage
+		Keys are stored here
+		Crypto functions are performed here
+		Not an asic, buts it's really fast, and it will self-destruct
+
+	Bitlocker 
+		Don't try and use bitlocker without a TPM
+		Can use a 48-digit password to decrypt without TPM or USB/PIN, etc..
+
+Unified Extensible Firmware Interface (UEFI)
+	Fuckin' blows
+	Replaces BIOS
+
+	Secure boot is a main feature
+	Can load antivirus software at the earliest point possible
+
+Group Policy Objects (GPOs)
+	
+Account Management
+	Guest
+		Enable the guest account
+		Set a yuuuge password on it
+		Set the permissions to 0
+		Disable the account
+	Administrator
+		Rename administrator account to something inconspicuous
+		Create a new honeypot account "Administrator"
+
+Hardening IIS
+
+Port Numbers
+	...nevermind
+
+IPSec can be used for encryption and to shape traffic
+
+Wow windows sucks.

@@ -1,0 +1,107 @@
+Fair Credit Reporting Act (FCRA)
+
+----------
+Basic Info
+----------
+
+Regulates the collection, disclosure, and use of consumer report information
+
+A consumer report must be communicated by a CRA, bear on a consumer's seven
+factors, and be collected, disclosed, or used for a purpose specified by the
+FCRA.
+
+Consumer Reporting Agency (CRA)
+    Credit bureau
+    background screening companies
+    private investigators
+    check verification firms
+    resellers
+        collect and merge multiple reports from firsthand CRAs
+    EWS is a "Nationwide Specialty Consumer Reporting Agency"
+
+Seven Factors
+    credit worthiness
+        standing
+        capacity
+    character
+    reputation
+    personal characteristics
+    mode of living
+
+------
+Duties
+------
+
+Duties of a CRA
+    Permissable Purpose Provision
+        A CRA may only provide a consumer report for a permissable purpose
+
+    Make sure that whoever receives a consumer report only use it for a
+    permissable purpose.
+
+    Properly dispose of consumer report information
+
+    Have data security plans to protect personally identifiable financial info
+
+What's in a consumer report?
+    Must be reasonably accurate, and maintain procedures that are designed to
+    ensure accuracy
+
+    Must not report obsolete information
+        Bankruptcy information after 10 years
+        Derogatory information after 7 years
+        Status of medical debt
+
+    Must report
+        Voluntary closure of an account
+        When a consumer disputes information
+
+Employment reports
+    Employer must provide a "pre adverse action" copy of the report to the
+    consumer before taking adverse action
+
+    Provide adverse action notice after the adverse action is taken
+
+    Early Warning's IFPS is a product that produces employment related
+    consumer information
+
+Consumer File Disclosures
+    Must disclose all information on file
+        inquiries for the past year
+        employment inquiries for the past two years
+        sources of information
+    Must also provide a trained personnel to explain the file disclosure
+
+    Consumer may review the file and dispute any charges that are incorrect
+        The CRA must investigate the dispute and modify or delete
+
+Furnishers
+    Must ensure accuracy
+    Correct and update disputes
+    Investigate disputes
+    Notice of identify theft
+    negative information notice
+
+Obligations of Users
+    Obtain and use consumer reports only for a permissable purpose
+    Adverse action notice
+        Denial of credit, insurance, employment
+    Risk-based pricing notice
+    Discard of consumer report information securely
+    Must give consent to an employer if they wish to obtain consumer report
+
+-----------
+Enforcement
+-----------
+
+Areas of Enforcement
+    Private action
+        willful violations
+        negligent actions
+        class actions
+    Administration
+        CFPB
+        FTC
+        $1 million per day for egregious violations
+        State Attorneys general
+    Criminal Liability

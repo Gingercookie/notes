@@ -1,0 +1,68 @@
+Malware
+    Viruses
+        attach to something else - can't live on their own
+    Worms
+        can live on their own
+    Logic/Time bombs, threats
+        execute when logic is true or time is met
+    APTs
+        advanced threat actor (highly skilled, nation-state, etc..)
+    0-day
+        0 days of knowledge, warning
+
+Configuration Management
+    Baseline standard for config
+    Notification or way to know when a change has happened
+
+Antivirus
+    Signature based
+    Behavior based
+    Checksum (IDS)
+        Compute hash on files
+        Detection, not prevention
+
+Access Control / Password Management
+    Biba Model (integrity)
+    Bell LaPadula Model (confidentiality)
+
+    Identity - who you are
+    Authentication - proving you have a certain identity
+    Authorization - the allowed actions of a certain identity
+    Accountability - access control used for auditing purposes
+
+    Separation of duties
+        developer should not review his own code
+        sysadmin should not approve his own firewall rules
+
+    Rotation of duties
+        minimizes collusion
+        minimizes the ability to cover tracks
+
+    Kerberos!
+
+Passwords
+    Cracking
+    Rainbow Tables
+        pre-computed hashes
+
+Policy
+    Write policy that follows the culture, don't write policy that tries to
+    change the culture
+
+    Specific
+    Measurable
+    Achievable
+    Realistic
+    Time-based
+
+Non-disclosure agreement (NDA)
+    agreement that an employee will not share trade secrets, etc..
+
+Business Continuity Plan (BCP)
+    Policy that helps you deal with disasters and risks that are unavoidable
+    Business Resumption Plan (BRP) is a part of the BCP - the actionable items
+    that allow the business to act upon the BCP
+    How do we stay in business while the sky is being replaced ?
+
+Disaster Recovery Plan (DRP)
+    The sky is falling, how do we replace it ?

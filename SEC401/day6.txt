@@ -1,0 +1,77 @@
+Linux hardening tips
+	
+	CIS Hardening Guides
+	
+	mount root fs as 6 different volumes
+
+	Configuration Management to roll out hardened configs
+		Ansible
+			manages over ssh
+
+		Chef
+		SaltStack
+			Cloud - use this	uninstall x11
+
+	bastille
+		user-interactive hardening software
+
+	automated compliance scanning
+		Lynis
+
+	Closing unneeded ports
+		/etc/xinetd.d/
+
+	SSH Hardening
+		Port-knocking
+		XFA
+
+	Sysctl hardening
+		net.ipv4.conf.default.accept_source_route 0
+
+Log aggregation & SIEM
+	Security Information & Event Management (SIEM)
+	Use the same time zone for all logs (use UTC...)
+
+	Splunk
+		Cost effective for small number of logs
+		Very popular
+	Alien Vault
+	LogRhythm
+	Logstash
+		Lacking front end
+		Most use Kibana as a front end
+	Graylog2
+	LOGalyze
+
+Log Files
+	Key logs
+		utmp
+			user logs
+		wtmp
+			historical data for utmp
+		btmp
+			failed login attemps
+		dmesg
+			driver & display messages
+		messages
+		maillog
+		secure
+
+	Syslog
+	Syslog-NG
+	Rsyslogd
+	logrotate
+
+Host-based intrusion detection
+	Tripwire
+	Samhain
+	OSSEC
+
+Linux Firewalls
+	IPTables
+		fwbuilder.org
+	Firewalld
+
+Rootkits
+	rkhunter
+	chrootkit

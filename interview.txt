@@ -1,0 +1,56 @@
+<Person> Interview - Will Graham
+------------------------------------
+
+Scripting/Programming
+    How much experience programming?
+    What languages are you most familiar with?
+    What kind of personal projects have you worked on - anything I can use ?
+
+    Buffer Overflows
+        What are they?
+        How to exploit?
+        Various protections?
+        How to exploit those protections?
+
+    Databases
+        SQL query parameterization
+        Stored procedures
+
+What are you looking for in a security career ?
+    Red team / blue team / manager / etc
+
+Recent security news, vulnerabilities or new protections, etc..
+    IoT
+        Mirai
+    Web
+        New CSRF protection
+        Cloudbleed
+        TLS 1.3
+    Tech / Intelligence
+        Vault7
+            Is WikiLeaks a viable source of information for sec. community?
+    Systems
+        DCCP Double-Free Vuln in Linux Kernel for ~ 10 years (ASLR bypass)
+        MAD GADGET
+
+Security News
+    What websites do you look at for security news ?
+    Who do you follow on Twitter ?
+    Any podcasts ?
+
+Outside of work
+    What does your home lab or network look like ?
+    What security-related projects have you done at home ?
+    Do you compete in CTFs ?
+    Do you attend conferences ?
+    Have you given any talks, presented any papers, etc ?
+
+OWASP Top 10
+    Can you list the top 10 ?
+    Talk about one of them (pick one if you can't explain all of them)
+
+What did you learn the most in your security experience ?
+
+Successes and Failures
+    Success
+    Failure

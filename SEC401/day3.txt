@@ -1,0 +1,69 @@
+ROI
+	(%) ROI  = (gain - expenditure)/expenditure
+
+Cookies
+	Created by Netscape
+	Originally created for very small purposes (session tracking, etc..)
+	Now used for everything
+
+SSL/TLS
+	Created by Netscape until SSLv3, then handed off to IETF
+	IETF created TLSv1.0(SSLv4)+
+
+Securing WebApps
+	Input validation
+		injection attacks 
+
+Firewalls
+	not deep packet insepction
+		only looks at headers 
+	deep packet inspection
+		looks at headers plus data portion
+
+	stateful inspection
+		list of rules AND state table
+			state table creates new entries when it sees a new, valid packet that 
+			matches a permit rule
+
+			When any other packet as part of that connection hits the firewall, it
+			mathches with the state table instead of the rule list
+
+			When the firewall sees a FIN as part of the connection, the state table
+			entry is deleted and a new connection would start this process all over 
+			again
+
+			State table matching happens in the kernel, and is faster than matching
+			all packets to rules. 
+
+	Proxy Gateway
+		They're real inefficient, and really, really inefficient for UDP
+		(because they have to copy and forward traffic between buffers)
+
+		two separate connections are made, the connection on each side mirrors the other
+
+	Data Diode
+		physically incapable of sending data in two directions. Can only receive data
+
+	Unidirectional Gateway
+		software solution that only allows connections to be established in one way,
+		but will allow responses 
+
+	NAT
+		Port translation
+
+Honeypots & Honeynets
+	honeypots are cool, but do everything else first
+
+	they don't inherently give you much (if any) security, so the effort is almost
+	always better spent somewhere that does
+
+Intrusion Detection/Prevention System
+	IDS
+		True Positive : attack triggered alert
+		True Negative : attack did not trigger alert
+		False Positive: non-attack triggered alert
+		False Negative: non-attack did not trigger alert
+
+10 I.P.s with most connections
+10 I.P.s with longest connection
+10 I.P.s with most data transferred 

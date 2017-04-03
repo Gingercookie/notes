@@ -1,0 +1,65 @@
+Overview
+
+Cryptography - encrypting data
+Cryptanalysis - breaking cryptography
+
+Classical Cryptography
+	Substitution - substitute one letter for another
+		mono-alphabetic 
+		caeser cipher
+	Permutation - change the order of the characters
+		transposition
+		rail-fence cipher 
+
+Stegonagraphy
+	hiding data within data
+
+Encryption & Decryption 
+	gotta encrypt to decrypt
+	D(E(M1)) = M1
+
+	Symmetric 
+		Shared-key
+
+	Asymmetric 
+		Private/public key pairs
+
+	DES
+	3DES
+	AES
+
+	Hashing
+		MD5
+			128-bit
+		SHA-1 
+			160-bit
+		SHA-2
+			224
+			256
+			384
+			512/224
+			512/256
+		SHA-3
+			people got real mad (Keccak)
+
+	VPN
+		Split or non-split tunnels
+
+	IPSec
+		Authentication Header (AH)
+			Data integrity
+			No confidentiality
+			Origin authentication
+		Encapsulated Security Payload (ESP)
+			Data integrity
+			Confidentiality
+			Origin authentication
+			vpn-like
+
+Applied Crypto
+	Pretty Good Privacy (PGP)
+	GNU Privacy Guard (GPG)
+
+Critical Security Controls
+
+IT Risk Management

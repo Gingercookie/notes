@@ -1,0 +1,75 @@
+Gramm-Leach-Bliley Act
+
+Federal Trade Commission (FTC)
+
+consolidation of financial institutions
+
+financial institutions have an obligation to
+    respect the privacy of its customers
+    protect the security and confidentiality of those customers' information
+
+CFPB regulates privacy
+FTC regulates information security
+
+Financial Institution is classified as
+    A company that engages in financial activities identified under federal law
+    For example
+        banks
+        credit unions
+        securities brokers
+        insurance companies
+        CRAs
+        resellers
+        debt collectors
+        mortgage brokers
+
+GLBA covers Nonpublic Personal Information (NPI)
+    Any information
+        - A consumer provides to a financial institution to obtain a financial
+            product or service
+        - About a consumer resulting from a transaction involving a financial
+            product or service between a financial institution and the consumer
+        - A financial institution obtains about a consumer in connection with
+            providing a financial product or service to that consumer
+
+Consumer
+    an individual who obtains a financial product or service from a financial
+    institution that is for personal purposes
+        applications, atm users, previous credit card holders
+
+Customer
+    a consumer who has an existing relationship with a financial institution
+
+Privacy notices
+    Initial notice to a customer at the establishment of a relationship
+    Initial notice to a consumer in cases where they are not a customer
+    Annual privacy notice to customers. May be deliered online only if the
+    customer has elected to receive electronic notifications.
+
+    Must include
+        the types of NPI that the financial institution collects and discloses
+        types of affiliated and nonaffiliated 3rd parties who will receieve
+        explanation of the right to opt out of disclosure of NPI if applicable
+        description of how the financial institution protects this information
+
+    Financial only may disclose NPI when
+        Given an initial privacy notice to a consumer
+        Provided the consumer with a notice to opt-out of disclosure
+        Given the consumer reasonable time to opt out
+        The consumer has not opted out
+
+    Exceptions
+        The above requirements do not exist when giving NPI to nonaffiliated
+        if..
+            as necessary to effect, administer or enforce a transaction
+            in connection with a product or service that the consumer requests
+            with the direct consent of the consumer
+            to protect against fraud
+            to a CRA in accordance with FCRA
+
+        Also do not apply if
+            the financial institution provides initial privacy notice and its
+            plans to share NPI, and the institution enters a contract that
+            limits its sharing of information related only to relevant services
+
+            This now includes marketing and joint marketing

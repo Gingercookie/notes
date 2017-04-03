@@ -1,0 +1,34 @@
+Port Scanning
+-------------
+
+Port scanning works because most services run on standard, documented ports.
+
+The easiest way to scan for services is to establish a TCP connection on every
+port, but this is noisy and detectable, and usually leaves a trace (IP logs).
+
+Types of scans
+
+SYN Scan
+A syn scan simply sends SYN packets to each port on a system. This is less
+noisy than a full tcp connection, and doesn't get logged because the connection
+is never established. It is also called a half-open scan, because the client
+never responds with an ACK to finalize the handshake.
+
+You can run a syn scan through nmap with -sS option
+
+FIN, Xmas, NULL scans
+In order to mitigate the effects of a SYN scan, new tools were created to detect
+half-open connections. In order to get around this, we send nonsensical packets
+and see how the port responds. If there is no response, there is typically no
+service running there. If a response is sent, it's an indication that a service
+is running on that port.
+
+FIN expects a RST packet in response, but Microsoft's implementation of TCP
+fails to do this, so FIN scans aren't always reliable.
+    -sF
+
+Xmas scan is a packet with FIN, URG, PSH flags all turned on
+    -sX
+
+NULL scan is a packet with no flags
+    -sN

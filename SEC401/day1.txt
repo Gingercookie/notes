@@ -1,0 +1,54 @@
+CSMA/CD
+    Carrier sense multiple access / collision detection
+    layer 2
+
+Dedicated lines
+    end-to-end links leased from a carrier company (ATT, Sprint, Orange, etc)
+    These are typically T1, T3, E1, E3
+    Costly
+
+Frame Relay
+    sharing a WAN with others, pay per packet (bandwidth)
+    least expensive non-dial-up connection is a 64kbps frame relay
+        POS, rural, etc..
+
+MPLS
+    multiprotocol label switching
+    called "multiprotocol" because it encapsulates other protocols/layers
+        similar to TLS, SSH (..?)
+
+ISDN, DSL, Cable Modems
+    Internet connection established over phone lines, etc...
+    These are a huge security concern as they are typically installed
+        as rogue lines, backdoors into a company to bypass security controls
+        when "convenient"
+
+Networking Hardware
+    Hub
+        layer 2
+        broadcast (repeat), easy to sniff
+    Bridge
+        layer 2
+        forwards frames based on mac address
+    Switch
+        layer 2
+        smart forwarding based on mac addresses
+    Router
+        layer 3 device
+        connects logical networks
+        makes decisions based on ip and ports
+        drops traffic if it doesn't know where to send it (unlike layer 2 devices)
+
+802.1X Network-level authentication
+    VLANs
+    NAC (network access control)
+        Isolates a system before put on the network, allows for scanning,
+        fingerprinting, etc, before being put on the network
+
+9, 10, 13 ICMP type code (rejected)
+
+SEQ # : next byte I expect to receive from you
+ICANN maintains official list of port numbers
+
+
+802.11X
