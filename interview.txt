@@ -1,4 +1,4 @@
-<Person> Interview - Will Graham
+<interviewee name> Interview - Will Graham
 ------------------------------------
 
 Scripting/Programming
@@ -16,8 +16,6 @@ Scripting/Programming
         SQL query parameterization
         Stored procedures
 
-What are you looking for in a security career ?
-    Red team / blue team / manager / etc
 
 Recent security news, vulnerabilities or new protections, etc..
     IoT
@@ -32,6 +30,35 @@ Recent security news, vulnerabilities or new protections, etc..
     Systems
         DCCP Double-Free Vuln in Linux Kernel for ~ 10 years (ASLR bypass)
         MAD GADGET
+
+Networking
+    OSI model
+        what are the 7 layers ?
+        layer 2 attacks?
+            arp cache poisoning
+        layer 3 attacks
+            ip spoofing
+            dns cache poisoning
+    TCP/IP
+        where do they fit within OSI model ?
+        3-way handshake
+        difference between tcp/udp, examples of when to use each
+        TCP packet flags
+    Packet sniffing/capture
+        experience with tcpdump or wireshark
+
+WebApp hacking
+    Session hacking
+    CSRF
+    XSS
+    SQLi
+        regular vs blind
+
+Penetration testing
+    Experience with penetration testing ?
+    What is the first step to pentesting ?
+    From beginning to end, what steps would you take to perform a pentest ?
+    What is the most valuable thing to come out of a pentest ?
 
 Security News
     What websites do you look at for security news ?
@@ -49,8 +76,15 @@ OWASP Top 10
     Can you list the top 10 ?
     Talk about one of them (pick one if you can't explain all of them)
 
-What did you learn the most in your security experience ?
+Career questions
+    What was the biggest lesson you have learned in your security career ?
 
-Successes and Failures
     Success
     Failure
+
+    Red team / blue team / manager / etc
+
+Personal questions
+    Vim or Emacs ?
+    What do you do in your free time ?
+    Do you ride a motorcycle ?

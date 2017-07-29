@@ -1,0 +1,50 @@
+-------
+Plugins
+-------
+Video DownloadHelper - download embedded videos
+	Will also show matching videos in different resolutions and formats
+	Download highest res 'original' if you need *integrity*
+
+DownThemAll
+	Just a helpful tool to download lots of content from a page en masse
+
+FireShot
+	Takes a full page "screenshot" with date-time stamp and watermark
+	Good for gathering evidence
+
+NoScript
+	*For Investigative Purposes*
+		You cannot let NS run with default (global forbid), because 
+		pages will not load the way they have been intended to 
+		load. They may or may not be considered as tampered evidence
+
+DisConnect
+	Similar to lightbeam, but has rules for what it should block and 
+	not block (also pretty graphs)
+
+--------
+Software
+--------
+Video Download (youtube icon)
+	Allows you to download an entire library of videos from a single
+	user's link
+	Also allows you to download with less clicks (with GUI), no options
+	for video res, extension, etc.
+	python script can be extended
+
+Maltego included
+
+Recon-NG included
+
+MediaInfo
+	Used to extract meta-data from media files
+
+TwitterExport
+	raw data
+
+Tinfoleak
+	more data (metadata, report generation)
+
+BleachBit
+	CCleaner on steroids
+	be careful, it can delete things you don't want deleted

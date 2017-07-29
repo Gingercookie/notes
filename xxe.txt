@@ -1,0 +1,4 @@
+XML External Entity (Injection/Processing) is a type of attack against
+and application that parses XML input. 
+
+
