@@ -1,11 +1,11 @@
-Cross-Site Request Forgery (CSRF) is an exploit that forces a user to 
+Cross-Site Request Forgery (CSRF) is an exploit that forces a user to
 execute unwanted actions on a website for which they are currently
 authenticated. The attacker generates a malicious HTTP request which
-inherits the identity and privileges of the victim and causes an 
+inherits the identity and privileges of the victim and causes an
 unauthorized state change.
 
 Because the attacker has no way of viewing the response of the malicoius
-request, the attacks are generally targeted towards state-changing 
+request, the attacks are generally targeted towards state-changing
 requests, not data theft.
 
 Typical attacks involve making a user unknowingly transfer funds from a
@@ -18,15 +18,15 @@ How to perform the exploit
     www.bank.com/transfers&action=send&target=1234578&amt=9999
    but disguise the link as something benign
    <a href=<malicious link> cute dog pictures!/>
-3. When the user clicks the link, a request will be sent from their 
+3. When the user clicks the link, a request will be sent from their
     browser, using the already authenticated session they had open. The
     link will be processed as if coming from a legitimate request.
 
-Another, trickier, way to present the malicious URL to a victim is to 
-include a 0x0 pixel image in an email, website, etc and embed the URL 
+Another, trickier, way to present the malicious URL to a victim is to
+include a 0x0 pixel image in an email, website, etc and embed the URL
 within the src property of the image. The browser or email client will
 automatically attempt to download the image from the indicated source,
-and the user will never even realize what's happening. 
+and the user will never even realize what's happening.
 
 How to defend against CSRF
 --------------------------
@@ -37,7 +37,7 @@ request, it will send a confirmation response before doing any actual
 processing.
 
 Another way to mitigate these attacks is to append a unique identifier
-to the HTTP request. This identifer should be a hidden form field on the 
-web page itself and randomly generated from a PRNG. The attacker would 
-thus have no knowledge of the hidden identifier, and the request would 
-be seen as a fake. No further action is taken. 
+to the HTTP request. This identifier should be a hidden form field on the 
+web page itself and randomly generated from a PRNG. The attacker would
+thus have no knowledge of the hidden identifier, and the request would
+be seen as a fake. No further action is taken.

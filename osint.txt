@@ -14,12 +14,12 @@ FireShot
 
 NoScript
 	*For Investigative Purposes*
-		You cannot let NS run with default (global forbid), because 
-		pages will not load the way they have been intended to 
+		You cannot let NS run with default (global forbid), because
+		pages will not load the way they have been intended to
 		load. They may or may not be considered as tampered evidence
 
 DisConnect
-	Similar to lightbeam, but has rules for what it should block and 
+	Similar to lightbeam, but has rules for what it should block and
 	not block (also pretty graphs)
 
 --------
