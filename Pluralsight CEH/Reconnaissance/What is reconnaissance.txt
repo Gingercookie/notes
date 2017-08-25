@@ -1,0 +1,77 @@
+Reconnaissance - learning as much as you can without getting caught.
+
+What we try to find out during recon
+	- What OS is the target running?
+		- Which version of this OS?
+	- What web server are they running?
+	- General office/business info, who are officers, locations, etc..
+	- What kind of ports are open on this machine?
+	- run dnslookup, whois, etc.. to find out how the website is hosted
+		and find details of underlying network infrastructure
+
+Once you have some basic information about your target, then you start
+to research specific vulnerabilities that may be possible for the scenario.
+
+Why do we do recon?
+	Understand the security posture
+		Helps you to figure out what you're up against, what kind of attacks
+		will work, which won't work, etc.. Is this the kind of system that 
+		doesn't have the most up
+	Reduce the attack area
+		Figure out how large of an attack vector you could be working with.
+		Usually the entire domain is not your target, you want to hone this
+		down into something focusable and manageable. Knowing the whole
+		network will allow you to chose your target
+	Build information database
+		Keep a record of all the information that you find during this step
+	Layout a network map
+		Make an actual map of the network. You can draw your own manually if
+		you want, and there are also tools to help you do this.
+
+Types of Recon
+	Passive
+		Being able to use public available sources to gather as much
+		information as possible. 
+		Gather IPs, OS's, software versions, open ports, access control points
+	Active
+		Talking to employees in the company, actually going there and poking
+		around on their network.
+	Anonymous
+		Any kind of reconnaissance you do while remaining anonymous. Just
+		make sure that whatever you do, your actions can't be traced back and
+		matched with an identity (you).
+	Organization/Private
+		Gathering information about a specific company, office, organization.
+		This could mean finding the internal calendar, peoples' birthdays, 
+		job titles and names of employees.
+	Pseudonymous
+		Collecting information that is published but not in direct relation
+		to your target or not sanctioned by the organization themselves.
+
+Goals of Recon
+	Network Information
+		Domain names
+		Internal domains
+		IP addresses - which range, VPN?
+		Private websites (dev sites, login portals, testing sites)
+		TCP/UDP services and ports
+		IDS/Access Controls
+		VPN info
+		Phone numbers (and VoIP)
+		User and group names, name schema
+		Routing Tables
+		SNMP
+		System Architecture
+		Remote systems
+		System Names - usually tells you a lot
+		Password complexity requirements
+	Organizational Information
+		Organization Website
+		Company Directory
+		Employee Details
+		Location details - recent move? high physical security?
+		Addresses and phone numbers - social engineering
+		Comments in source code
+		Background of organization
+		Partner Companies - link of trust here
+		News & Press releases about the company

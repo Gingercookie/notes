@@ -1,0 +1,103 @@
+Overview:
+	HTTP and state management
+	How sessions are persisted over HTTP
+	Cookies, URLs, and form fields
+
+The Stateless Nature of HTTP:
+	When a request is made, a new connection and a new response is made.
+	This happens over and over. So there is no concept of "state" within HTTP
+
+	How can we solve this? We need to achieve state information over a 
+	stateless protocol
+
+Persisting State Over HTTP:
+	When a request is made, if it is a new request, the server will send back
+	a response including a token.
+
+	In every subsequent request, the user passes this token. The server will
+	see the token and treat the user as being "authenticated"
+
+	So we've introduced a "state" in a stateless protocol.
+
+	The server has a data store that it contacts when a request is made. 
+	The session data is tied directly to the session ID, and this information
+	is potentially stored in a couple places:
+		In memory. If you restart the app or the server, the ID is destroyed.
+		A state server. A separate server or process dedicated just to persist
+			state.
+		Database. This is common because databases are pretty easy.
+
+	The server issues a token. The token is then associated with some set of 
+	user data also retrieved by the server.
+
+	If you give the wrong person the wrong session ID, they will obtain the
+	session data of another user.
+
+	If you can present the session ID of a user, you will get the session data
+	of that user. 
+
+	Thus it is very important to secure session data and authorize users.
+
+Let's clear up some terms
+Session ID, Token, Auth Cookie do not always mean the same thing. They play
+very similar roles but sometimes they can sometimes be used together.
+
+A few things about cookies:
+	When you create a new connection to a website, you will usually be given
+	a new session ID in the form of a cookie. This cookie will persist until 
+	the browser policy deletes it or until it has lived until its expiration
+	date.
+	This means that you can even close the browser, open it up at a later date
+	and still send the same cookie, thus still being authenticated to the 
+	server.
+
+	Pros:
+		Automatically persisted on each request. No need to log back in, the 
+		browser will automatically send your auth token for you.
+
+		Cookies usually aren't logged in normal requests. This is good because
+		it makes it much harder to find the session ID if it's being stored 
+		as a cookie. You typically do not need to know what your own session 
+		ID cookie is.
+
+		The session ID is persistent even after you close the browser. 
+		This feature is very convenient for a lot of people. 
+	Cons:
+		Because cookies are sent automatically by the browser with each 
+		request, session ID cookies are vulnerable to XSS and CSRF attacks.
+
+		You can only have one active session per browser
+
+Session Persistence in the URL:
+	A unique identifer is included somewhere in the URL. This acts as a 
+	session ID for the current user. 
+
+	Pros:
+		You can have multiple simultaneous sessions in the same browser
+
+		Still works if the client is not accepting cookies
+
+	Cons:
+		The session ID is lost as soon as you leave the website
+
+		The session ID will be sent in the referrer header if a user clicks
+		a link which sends them to an external site. 
+
+		URLs may be stored in cache or logs (firewall, proxy, etc..)
+
+Session Persistence in Hidden Form Fields:
+	Pros:
+		Multiple simultaneous sessions in the same browser
+
+		Still works if the client is not accepting cookies
+
+	Cons:
+		The session ID is lost as soon as you leave the website
+
+		Every HTTP request now needs to be a POST. You can no longer use
+		an HTTP GET anymore, because you need to POST the form data, which is
+		where your session ID is contained.
+
+		You can't secure embedded resources. Videos, images, scripts are 
+		requested by HTTP GETs by default, so you can't make any 
+		authenticated resource requests this way.
