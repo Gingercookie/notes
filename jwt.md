@@ -80,4 +80,4 @@ you expected.
     use of secure elliptic curves, but would become non-compliant with the RFC.
 - AES-GCM
 
-    There are plenty of related vulnerabilities here.
+    ?
