@@ -1,0 +1,84 @@
+Configuration, Identity, and Authentication testing
+
+nmap
+    developed as a port scanner
+
+    nowadays, it's more a NSE scripting engine, with a port scanner
+
+    -O operating system enumeration
+    -sV service version detection
+
+Shellshock
+    a bash vulnerability
+    important for webapps because interpreted languages have a lot of popen()
+    or system() calls. This will send the command to the shell to run, which
+    is vulnerable.
+
+    () { :;};echo;/usr/bin/id
+    input this for all the HTTP headers. If one of them is used programatically,
+    then you get output.
+
+Spidering
+    Following links
+DirBusting or Forced Browsing
+    "Brute" or dictionary attack on links you think might exist
+Fuzzing
+    Brute attack on links by enumerating through a set.
+
+Authentication
+    HTTP Basic Authentication
+        Cleartext creds
+        Encoded base64
+        Unlimited attempts
+        multiple concurrent sessions for the same user
+        no logout
+    HTTP Digest Auth
+        MD5 of password + nonce salt
+        Quality of Protection (qop) flag tells client how to generate hash
+        Still no account lockout or max login attempts
+        vulnerable to MitM
+    Other
+        SSO, SAML
+        Microsoft - NTLM
+            more vulnerable to CSRF and XSS
+        Kerberos
+        Usually seen in intranets, not internets
+    Forms-based auth
+        Uses HTML forms
+        Can make it look good or bad, no more popup windows
+        Still plaintext, unless TLS is used
+        Heavily dependent on implementation details
+            Can be great, or can be really terrible
+
+Credential harvesting
+    Usernames
+        Build a list of known good usernames before starting on passwords
+    How to find good usernames?
+        See if web app responds directly
+        Returns different response code
+        Use Burp comparer to see subtle differences in HTTP response
+        Reset passwords form often divulge existing usernames
+        Side-channel, timing attacks can also work
+    Timing attacks
+        Respond immediately with bad user/bad password
+            takes a second with good user/bad password
+
+Hashing algorithms
+    Inexpensive ones (fast)
+        SHA1, MD5, NTLM
+    Expensive ones
+        BCrypt
+        PBKDFv2
+
+Burp Intruder
+    Sniper
+        one payload at a time, one field at a time
+    Battering ram
+        Injects one input source into multiple fields simultaneously
+        Shellshock payload into all HTTP headers
+    Pitchfork
+        Injects sets of data together (username and userid, etc)
+        score and score hash?
+    Clusterbomb
+        Fuzzing through multiple sets of data, in multiple fields
+        username list, password list

@@ -1,0 +1,13 @@
+username:student
+password:Security542
+
+Section 4, HTML injection
+if you encounter issues with Multillidae, run this command
+    sudo ln -s /var/www/multillidae/ /var/www/multillidae/multillidae
+
+Section 5, w3af
+w3af may become buggy and require multiple attempts to utilize the Exploit tab.
+If a second scan is required, an exploit can be attempted as soon as "os_commanding" appears as an option
+
+NMap scripts
+/usr/local/share/nmap/scripts

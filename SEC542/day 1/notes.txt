@@ -1,0 +1,77 @@
+Introduction and Information Gathering
+
+Separating discovery and exploitation, which is commmonly separated in typical
+pentesting, doesn't work super well for web app pentesting.
+
+They is often not a big step, or no step at all, between discovery and
+exploitation in web app. If you get a web app error with a weird sql statement,
+you discovered the exploit, but you kinda already exploited it as well.
+
+OWASP
+Changes between 2013 and 2017 Top 10
+    "Insecure Direct Object References" and "Missing Function Level Access
+    Control" are combined into "Broken Access Control"
+
+    XXE was added
+    Insecure Deserialization was added
+    Insufficient Logging and Monitoring was added
+
+    CSRF was removed
+    Unvalidated redirects and forwarded was removed
+
+    Injection and Authentication are still top 2
+
+OWASP Testing Guide (OTG)
+    Serves as a sanity check/checklist for web app pentesting
+    /home/student/Documents on the VM
+    and root dir of USB
+
+    Good for exploit details AND remediation
+
+
+Toolkit
+    Attack platform (linux)
+        OS doesn't matter that much with web app testing
+        matters a lot more for network pen testing
+    Dynamic web app scanner(s)
+    Browser(s)
+    Intercept proxy
+
+DNS and WHOIS
+    see lab1.txt
+
+    DNSRecon.py is the best
+
+    but you can also do this with metasploit
+    which is kinda nice because then the results are loaded in memory
+    for other MSF exploits 
+
+HTTP Protocol
+    HTTP/0.9
+        Only supported get
+        One get = one tcp connection
+        Many modern servers (Apache, nginx) still support by default
+        HTML only
+    HTTP/1.0
+        RFC 1945
+        First "formal" standard
+        GET, HEAD are "safe"
+        PUT, POST, DELETE also included
+        non-HTML included (images, binary)
+    HTTP/1.1
+        Virtual host support
+        Host header mandatory for client requests
+        Persistent connections (TCP connections live multiple requests)
+        OPTIONS method
+        support for caching, proxy, compression
+    HTTP/2
+        RFC 7540
+        HPACK
+            RFC 7541
+            Header compression
+        Push Promise
+            Server sends data before it is requested
+        Multiplexed
+            multiple requests and responses are sent in parallel on the
+            same tcp connection
+            better than pipelined data

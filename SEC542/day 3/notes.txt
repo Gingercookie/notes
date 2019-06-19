@@ -1,0 +1,46 @@
+Injection
+
+HTTP is stateless
+    TCP is stateful, but HTTP doesn't have anything to do with state
+
+Sessions
+    Tokens
+        Long - less chance of collision
+        Random - harder to guess
+        Unique - doesn't overlap with other users
+
+    Cookies
+        Sent as part of the HTTP header
+        Browser is "supposed" to store them and send back, without changing
+        "Secure" - only send over HTTPS
+        TTL - how long is it good for?
+
+    URI Parameters
+        param=value
+        session=lkj23i9hSvj2890ng
+        Sends in body of the GET request (not header)
+
+    Hidden Form Fields
+        In the HTML body, marked as "hidden" but it's not really hidden
+        It's just sitting in the HTML
+
+Session Hijacking
+    Finding out another user's session ID, slapping it in your request, and
+    become that user.
+
+Session Fixation
+    Generate a session, then send a link with the session to another user.
+    When the user clicks the link, you know their session ID and can then
+    hijack it.
+
+    This resolves around the fact that the session is created before the user
+    authenticates. We send to victim and wait for them to authenticate, then
+    we have their session.
+
+    FIX - give session ID to user AFTER they authenticate
+        or CHANGE the session ID after authentication
+        there can be good reasons to have non-authenticated sessions
+
+Authentication Bypass
+    Try to access resources directly - after spider or forced browse
+    Use keys or IDs that are referenced in other pages to directly access 
