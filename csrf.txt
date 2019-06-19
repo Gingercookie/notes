@@ -37,7 +37,7 @@ request, it will send a confirmation response before doing any actual
 processing.
 
 Another way to mitigate these attacks is to append a unique identifier
-to the HTTP request. This identifier should be a hidden form field on the 
+to the HTTP request. This identifier should be a hidden form field on the
 web page itself and randomly generated from a PRNG. The attacker would
 thus have no knowledge of the hidden identifier, and the request would
 be seen as a fake. No further action is taken.
