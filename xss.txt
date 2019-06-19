@@ -24,3 +24,4 @@ Persistent:
         visit your page, the script will be executed on their browser.
         This can be used to get personal information from the users who 
         are visiting your page.
+
