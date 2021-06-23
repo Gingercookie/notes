@@ -8,6 +8,9 @@ There are also general notes on other topics, including different
 laws and regulations that financial institutions must adhere to, pertaining to
 infosec and privacy.
 
+#### GCP
+Notes related to GCP, including cloud armor and security command center.
+
 #### SEC401
 This folder includes notes that I took as part of SANS SEC 401 training course,
 and is probably the most complete set found here.
