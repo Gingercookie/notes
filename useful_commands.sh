@@ -1,5 +1,10 @@
-# Sed replace things
+# Sed examples
 grep title custom_roles.tf | cut -d '"' -f 2 | while read i; do new=$(echo $i  | sed -e "s/\([A-Z][a-z]\)/_\1/g" -e "s/__/_/g" -e "s/-/_/g"| tr "[A-Z]" "[a-z]") ; echo "$i > $new"; sed -i -e "s/$i/$new/g" custom_roles.tf | grep -E "$i|$new"; done
+
+# SSH generate fingerprint of key
+ssh-keygen -l -f <key_file>  # new school
+ssh-keygen -lE md5 -f <key_file> # old school
+ssh-keygen -lv -f <key_file> # ascii art version
 
 ##################
 ## git commands ##
@@ -10,33 +15,6 @@ git push -u origin $(git rev-parse --abbrev-ref HEAD)
 #####################
 ## Gcloud commands ##
 #####################
-
-
-###############
-## Terraform ##
-###############
-# Show just the "change" lines in a terraform plan
-grep -e "^.*#.*\([^blue]\|green\).*\(created\|destroyed\|replaced\|updated\)" tf_output
-
-###########################################
-## Import all project-level custom roles ##
-###########################################
-project=${project}
-dir=modules/$project/iam
-module=module.redacted
-
-# Loop import of custom roles
-
-# List all custom roles and write into a file called "custom_roles_out"
-gcloud iam roles list --project=${project} --format="value(name)" > custom_roles_out
-
-# Create defintion stubs for all custom roles in "custom_roles.tf". These will be blown up and replaced when copying from tf state show
-cat custom_roles_out | while read role; do echo -e "resource \"google_project_iam_custom_role\" \"$(basename $role | tr '.' '_')\" {\n\n}\n"; done > $dir/custom_roles.tf
-
-# Loop through each role and do a tf import of that resource, then copy the "tf state show" of those resources into "custom_roles.tf"
-cat custom_roles_out | while read role; do terraform import $module.google_project_iam_custom_role.$(basename $role | tr '.' '_') "${project} $role"; done
-cat custom_roles_out | while read role; do tf state show -no-color $module.google_project_iam_custom_role.$(basename $role | tr '.' '_'); done > $dir/custom_roles.tf
-rm custom_roles_out
 
 #######################################
 ## Import all project-level bindings ##
@@ -72,3 +50,29 @@ done
 
 ## View shieldedInstanceConfig for each instance template
 for i in $(gcloud compute instance-templates list --format="value(name)"); do echo "Config for template $i"; gcloud compute instance-templates describe $i --format=json| jq '.properties.shieldedInstanceConfig'; done;
+
+###############
+## Terraform ##
+###############
+# Show just the "change" lines in a terraform plan
+grep -e "^.*#.*\([^blue]\|green\).*\(created\|destroyed\|replaced\|updated\)" tf_output
+
+###########################################
+## Import all project-level custom roles ##
+###########################################
+project=${project}
+dir=modules/$project/iam
+module=module.redacted
+
+# Loop import of custom roles
+
+# List all custom roles and write into a file called "custom_roles_out"
+gcloud iam roles list --project=${project} --format="value(name)" > custom_roles_out
+
+# Create defintion stubs for all custom roles in "custom_roles.tf". These will be blown up and replaced when copying from tf state show
+cat custom_roles_out | while read role; do echo -e "resource \"google_project_iam_custom_role\" \"$(basename $role | tr '.' '_')\" {\n\n}\n"; done > $dir/custom_roles.tf
+
+# Loop through each role and do a tf import of that resource, then copy the "tf state show" of those resources into "custom_roles.tf"
+cat custom_roles_out | while read role; do terraform import $module.google_project_iam_custom_role.$(basename $role | tr '.' '_') "${project} $role"; done
+cat custom_roles_out | while read role; do tf state show -no-color $module.google_project_iam_custom_role.$(basename $role | tr '.' '_'); done > $dir/custom_roles.tf
+rm custom_roles_out
