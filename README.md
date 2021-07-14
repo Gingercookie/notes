@@ -8,6 +8,12 @@ There are also general notes on other topics, including different
 laws and regulations that financial institutions must adhere to, pertaining to
 infosec and privacy.
 
+#### Terminal Settings
+The following files are archived together into `terminal_preferences.tar`
+- `.p10k.zsh`
+- `.zshrc`
+- `com.googlecode.iterm2.plist`
+
 #### GCP
 Notes related to GCP, including cloud armor and security command center.
 

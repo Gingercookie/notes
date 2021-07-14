@@ -1,6 +1,12 @@
 # Sed replace things
 grep title custom_roles.tf | cut -d '"' -f 2 | while read i; do new=$(echo $i  | sed -e "s/\([A-Z][a-z]\)/_\1/g" -e "s/__/_/g" -e "s/-/_/g"| tr "[A-Z]" "[a-z]") ; echo "$i > $new"; sed -i -e "s/$i/$new/g" custom_roles.tf | grep -E "$i|$new"; done
 
+##################
+## git commands ##
+##################
+# Push new branch to remote server (make sure you have origin set up as a remote first)
+git push -u origin $(git rev-parse --abbrev-ref HEAD)
+
 #####################
 ## Gcloud commands ##
 #####################
