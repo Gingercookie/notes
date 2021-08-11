@@ -32,4 +32,21 @@ Learn JSON PATH
 5. Create a deployment and perform a rolling update on it.
 6. Create user X with access to Y methods within Z namespace.
 7. DNS resolution for an internally exposed (ClusterIP?) service.
-8. Static pod created 
+8. Static pod created
+
+# Practice Test 3
+
+## Questions
+1. Create a service account. Create and assign a role and rolebinding to it.
+2. Get list of node IPs
+3. Create a pod with multiple containers
+4. Create a pod with `fsGroup` and `runAsUser` set in the security context
+5. Some shit with network policies
+6. Taint a node, and add a toleration for that taint to a pod
+7. Create a pod in a namespace with 2 labels
+8. Fix the kubeconfig file
+9. Troubleshoot a deployment
+
+## Commands
+kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="InternalIP")].address}' > /root/CKA/node_ips
+kubectl cluster-info --kubeconfig=/root/CKA/super.kubeconfig
