@@ -27,3 +27,7 @@ Imperative Commands
 
 #### Service Accounts
 A service account is used by container processes to authenticate with the k8s api.
+
+#### Metrics Server
+This allows us to do
+- `kubectl top pod`
