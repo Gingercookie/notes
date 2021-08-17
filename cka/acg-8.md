@@ -36,4 +36,4 @@ As soon as a policy is applied though, they are isolated, and only whitelisted t
 - `namespaceSelector` - match namespaces
 - `ipBlock` + `cidr` - match IP addresses
 
-Traffic must match all selectors. 
+Traffic must match all selectors.
