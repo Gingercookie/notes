@@ -56,11 +56,36 @@ Uncordoning a node will not cause a re-balancing on the nodes.
 All cluster data is stored in etcd.
 
 #### Save
-- `ETCDCTL_API=3 etcdctl snapshot save <filename> --endpoints=<etcd-ip-addr> --cacaert=<etcd-ca-cert.pem> --cert=<etcd-server.crt> --key=<etcd-server.key>`
-- endpoints
-- cacert
-- cert
-- key
+```
+ETCDCTL_API=3 etcdctl snapshot save <filename> \
+--endpoints=<etcd-ip-addr> \
+--cacaert=<etcd-ca-cert.pem> \
+--cert=<etcd-server.crt> \
+--key=<etcd-server.key>
+```
 
 #### Restore
-- `ETCDCTL_API=3 etcdctl snapshot restore <filename> --initial-cluster <name>=<etcd-ip-addr> --initial-advertise-peer-urls <etcd-ip-addr> --name <name> --data-dir <restore-directory>`
+1. `sudo systemctl stop etcd`
+2. `sudo rm -rf /var/lib/etcd`
+
+```
+sudo ETCDCTL_API=3 etcdctl snapshot restore <backup_file> \
+--initial-cluster <new_name>=<new_ip_addr:port> \
+--initial-advertise-peer-urls <new_ip_addr:port> \
+--name <new_name> \
+--data-dir /var/lib/etcd
+```
+3. `sudo chown -R etcd:etcd /var/lib/etcd`
+4. `sudo systemctl start etcd`
+
+
+#### Verify Backup
+1. Copy restore command, change to `get cluster.name`
+
+```
+ETCDCTL_API=3 etcdctl get cluster.name <filename> \
+--endpoints=<etcd-ip-addr> \
+--cacaert=<etcd-ca-cert.pem> \
+--cert=<etcd-server.crt> \
+--key=<etcd-server.key>
+```
