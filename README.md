@@ -14,6 +14,12 @@ The following files are archived together into `terminal_preferences.tar`
 - `.zshrc`
 - `com.googlecode.iterm2.plist`
 
+#### AppSec
+Notes from a past live, organized into a single place. Go here if you forget what XSS or XXE means.
+
+#### CKA
+Notes related to Kubernetes. Specifically, the Certified Kubernetes Administrator exam.
+
 #### GCP
 Notes related to GCP, including cloud armor and security command center.
 
@@ -29,6 +35,3 @@ or organization after the fact. Notes are split up by day.
 #### Pluralsight CEH Notes
 - Reconnaissance
 - Session Hijacking
-
-#### WaHH (Web Application Hacker's Handbook) Notes
-- Chapter 3 - Web app technologies (HTTP, cookies, REST)
