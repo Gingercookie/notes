@@ -1,3 +1,4 @@
 .p10k.zsh
 .zshrc
 com.googlecode.iterm2.plist
+*pycache*
